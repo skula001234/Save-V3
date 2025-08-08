@@ -17,7 +17,7 @@ async def subscribe(app, message):
               return 1
         except UserNotParticipant:
             link = await app.export_chat_invite_link(FORCE_SUB)
-            caption = f"Join our channel to use the bot"
+            caption = f"📣 ᴊᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟꜱ ғᴏʀ ᴜꜱᴇ ᴍᴇ\n1️⃣ ʙᴀᴄᴋ-ᴜᴘ ᴄʜᴀɴɴᴇʟ ᴜꜱɪɴɢ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴꜱ\n2️⃣ ᴀғᴛᴇʀ ᴛʜᴀᴛ ʏᴏᴜ ᴊᴏɪɴ ꜱᴇɴᴅ /start ᴀɢᴀɪɴ"
             await message.reply_photo(photo="https://graph.org/file/d44f024a08ded19452152.jpg",caption=caption, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join Now...", url=f"{link}")]]))
             return 1
         except Exception as ggn:
@@ -233,3 +233,4 @@ async def see_terms(client, callback_query):
     await callback_query.message.edit_text(terms_text, reply_markup=buttons)
  
  
+
