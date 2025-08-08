@@ -29,8 +29,7 @@ async def login_command(client, message):
     login_cache.pop(user_id, None)
     await message.delete()
     status_msg = await message.reply(
-        """Please send your phone number with country code
-Example: `+12345678900`"""
+        """**📞 Send your number with country code\nExample: `+12345678900` (USA 🇺🇸)\nExample: `+917891932546` (IND 🇮🇳)**"""
         )
     login_cache[user_id] = {'status_msg': status_msg}
     
@@ -115,7 +114,7 @@ async def handle_login_steps(client, message):
                     '❌ Please provide a valid phone number starting with +')
                 return
             await edit_message_safely(status_msg,
-                '🔄 Processing phone number...')
+                '**📲 Sending OTP... Please wait! ⏳**')
             temp_client = Client(f'temp_{user_id}', api_id=API_ID, api_hash
                 =API_HASH, device_model=model, in_memory=True)
             try:
@@ -127,9 +126,7 @@ async def handle_login_steps(client, message):
                 login_cache[user_id]['temp_client'] = temp_client
                 set_user_step(user_id, STEP_CODE)
                 await edit_message_safely(status_msg,
-                    """✅ Verification code sent to your Telegram account.
-                    
-Please enter the code you received like 1 2 3 4 5 (i.e seperated by space):"""
+                    """**📩 OTP sent to your Telegram account\n\nIf Code is `12345` send me `1 2 3 4 5`\nEX: OTP=`23456` , Send Me**=`2 3 4 5 6`"""
                     )
             except BadRequest as e:
                 await edit_message_safely(status_msg,
@@ -283,3 +280,4 @@ Still removing from database..."""
                 os.remove(f"{user_id}_client.session")
         except Exception:
             pass
+
