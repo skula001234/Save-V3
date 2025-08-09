@@ -20,7 +20,7 @@ YTUB_COOKIES = """
 API_ID = os.getenv("API_ID", "22422690")
 API_HASH = os.getenv("API_HASH", "2884fbc53b44a1bbcfa7c525e185c1aa")
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
-MONGO_DB = os.getenv("MONGO_DB", "mongodb+srv://nekac84715:dSJWxFBqRX6yHtoP@cluster0.jlecihg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+MONGO_DB = os.getenv("MONGO_DB", "mongodb+srv://tamipe2955:ycCM6XzniipLBItd@cluster0.g7v3si9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 OWNER_ID = list(map(int, os.getenv("OWNER_ID", "7793257011").split())) # list seperated via space
 DB_NAME = os.getenv("DB_NAME", "telegram_downloader")
 STRING = os.getenv("STRING", None) # optional
@@ -34,5 +34,6 @@ FREEMIUM_LIMIT = int(os.getenv("FREEMIUM_LIMIT", "0"))
 PREMIUM_LIMIT = int(os.getenv("PREMIUM_LIMIT", "500"))
 JOIN_LINK = os.getenv("JOIN_LINK", "https://t.me/SaveContentV3") # this link for start command message
 ADMIN_CONTACT = os.getenv("ADMIN_CONTACT", "https://t.me/MrFrontman001")
+
 
 
